@@ -21,6 +21,7 @@ const Home = ({ navigation }) => {
             style={styles.btn}
             onPress={() => {
               setComputer(false);
+              navigation.navigate("GameScreen");
               console.log(isComputer);
             }}
           >

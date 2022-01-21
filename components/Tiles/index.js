@@ -15,24 +15,40 @@ const Tiles = () => {
   const { isComputer, setComputer } = useContext(UserContext);
 
   const drawItem = (number) => {
-    if (board[number] == "" && winGame() == "") {
-      if (isCross) {
-        board[number] = CROSS;
-      } else {
-        board[number] = CIRCLE;
-      }
+    // const new = Math.random()
 
-      setCross(!isCross);
-      if (winGame() != "") {
-        Alert.alert(winGame() + " won the game.");
+    if (!isComputer) {
+      if (board[number] == "" && winGame() == "") {
+        // if (isCross) {
+        //   board[number] = CROSS;
+        // } else {
+        //   board[number] = CIRCLE;
+        // }
+
+        // setCross(!isCross);
+        // if (winGame() != "") {
+        //   Alert.alert(winGame() + " won the game.");
+        // }
+        return;
+      }
+    } else {
+      if (board[number] == "" && winGame() == "") {
+        if (isCross) {
+          board[number] = CROSS;
+        } else {
+          board[number] = CIRCLE;
+        }
+
+        setCross(!isCross);
+        if (winGame() != "") {
+          Alert.alert(winGame() + " won the game.");
+        }
       }
     }
   };
 
   let resetGame = () => {
     setCross(!isCross);
-    // setComputer(!isComputer);
-    // console.log(isComputer);
     board = ["", "", "", "", "", "", "", "", ""];
   };
 
