@@ -3,7 +3,19 @@ import Color from "../../constants/Color";
 
 export const styles = StyleSheet.create({
   container: {
-    marginVertical: 30,
+    // marginVertical: 10,
+  },
+  reset: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 20,
+    borderColor: Color.textColor,
+    borderWidth: 2,
+    paddingVertical: 5,
+  },
+  btnText: {
+    color: Color.textColor,
   },
   tileContainer: {
     flexDirection: "row",
@@ -15,6 +27,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "transparent",
     borderWidth: 4,
     // borderColor: "transparent",
+    alignItems: "center",
+    justifyContent: "center",
   },
   tileOne: {
     borderRightColor: Color.secondaryColor,

@@ -3,7 +3,7 @@ import Color from "../../constants/Color";
 import { View, StyleSheet } from "react-native";
 
 const Screen = ({ children, style }) => {
-  return <View style={[styles.container, style]}>{children}</View>;
+  return <View style={{ ...styles.container, ...style }}>{children}</View>;
 };
 
 export default Screen;

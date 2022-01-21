@@ -2,10 +2,10 @@ import React from "react";
 import Color from "../../constants/Color";
 import { StyleSheet, View, Text } from "react-native";
 
-const GameName = () => {
+const GameName = ({ style }) => {
   return (
     <View>
-      <Text style={styles.title}>Tic Tac Toc</Text>
+      <Text style={{ ...styles.title, ...style }}>Tic Tac Toc</Text>
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 import Button from "../../components/button";
@@ -7,8 +7,11 @@ import Screen from "../../components/screen";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import Color from "../../constants/Color";
 import Others from "../../components/OtherFeatures/Others";
+import { UserContext } from "../../components/context/context";
 
 const Home = ({ navigation }) => {
+  const { isComputer, setComputer } = useContext(UserContext);
+
   return (
     <Screen>
       <View style={styles.container}>
@@ -16,12 +19,22 @@ const Home = ({ navigation }) => {
         <View style={styles.btnContainer}>
           <Button
             style={styles.btn}
-            onPress={() => navigation.navigate("GameScreen")}
+            onPress={() => {
+              setComputer(false);
+              console.log(isComputer);
+            }}
           >
             <Text style={styles.btnTitle}>One Player </Text>
             <AntDesign name="user" size={24} color={Color.secondaryColor} />
           </Button>
-          <Button style={styles.btn}>
+          <Button
+            style={styles.btn}
+            onPress={() => {
+              navigation.navigate("GameScreen");
+              setComputer(true);
+              console.log(isComputer);
+            }}
+          >
             <Text style={styles.btnTitle}>Two Player </Text>
             <Feather name="users" size={24} color={Color.secondaryColor} />
           </Button>

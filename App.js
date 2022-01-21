@@ -9,8 +9,11 @@ import GameScreen from "./screens/GameScreen";
 import { Inter_400Regular } from "@expo-google-fonts/inter";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { UserContext } from "./components/context/context";
+import { useState } from "react";
 
 export default function App() {
+  const [isComputer, setComputer] = useState(false);
   let [fontsLoaded] = useFonts({
     Righteous_400Regular,
     Inter_400Regular,
@@ -22,19 +25,21 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      // <View style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Intro"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="Intro" component={Intro} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="GameScreen" component={GameScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-      // <StatusBar style="light" />
-      // </View>
+      <>
+        <UserContext.Provider value={{ isComputer, setComputer }}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Intro"
+              screenOptions={{ headerShown: false }}
+            >
+              <Stack.Screen name="Intro" component={Intro} />
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="GameScreen" component={GameScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+          <StatusBar style="light" />
+        </UserContext.Provider>
+      </>
     );
   }
 }

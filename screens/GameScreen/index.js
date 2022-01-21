@@ -9,7 +9,7 @@ import Scores from "../../components/score/Scores";
 const GameScreen = () => {
   return (
     <Screen>
-      <GameName />
+      <GameName style={styles.gameName} />
       <Tiles />
       <Scores />
     </Screen>
